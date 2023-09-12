@@ -1,5 +1,7 @@
 accounts = {}
 
+
+#Method to create account
 def createAccount(account_number):
     if account_number not in accounts:
         account_info = {}
@@ -7,7 +9,7 @@ def createAccount(account_number):
 
         while True:
             account_type = input("Enter account type (savings/current): ").lower()
-            if account_type in ["savings", "current"]:
+            if account_type in ["savings", "current"]: #different type of accounts
                 account_info['type'] = account_type
                 break
             else:
@@ -29,6 +31,9 @@ def createAccount(account_number):
     else:
         print("Account already exists.")
 
+
+
+#Method to deposit money
 def deposit(account_number):
     if account_number in accounts:
         while True:
@@ -46,6 +51,9 @@ def deposit(account_number):
     else:
         print("Account doesn't exist.")
 
+
+
+#Method to withdraw money
 def withdraw(account_number):
     if account_number in accounts:
         while True:
@@ -69,12 +77,17 @@ def withdraw(account_number):
     else:
         print("Account doesn't exist.")
 
+
+
+#Method to check balance
 def checkBalance(account_number):
     if account_number in accounts:
         print(f"Account number {account_number} (owned by {accounts[account_number]['name']}) has a balance of ${accounts[account_number]['balance']}")
     else:
         print("Account doesn't exist.")
 
+
+#Method to check transaction history
 def viewTransactions(account_number):
     if account_number in accounts:
         print(f"Transaction history for account number {account_number}:")
@@ -83,6 +96,8 @@ def viewTransactions(account_number):
     else:
         print("Account doesn't exist.")
 
+
+#Initializing the menu
 while True:
     print("\nBank Account Simulation Menu:")
     print("1. Create Account")
